@@ -1,0 +1,13 @@
+function findLongestWordLength(str) {
+  let testRegex=/\w+/g;
+  let arr=str.match(testRegex);
+  let longestString=0;
+  for(let index in arr){
+    if(arr[index].length>longestString){
+      longestString=arr[index].length
+    }
+  }
+  return longestString;
+}
+
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
