@@ -1,0 +1,41 @@
+function makeRequest(location) {
+  return new Promise((resolve, reject) => {
+    console.log("processing promise");
+    if (location==='Google') {
+      resolve('Google says hi')
+
+    }
+    else {
+      reject('We can only talk to Google')
+    }
+  })
+}
+
+function processRequest(response) {
+  return new Promise((resolve, reject) => {
+    console.log('processing response ');
+    resolve('Extra information '+ response)
+  }) 
+}
+
+// makeRequest('Google').then((response) => {
+//   console.log("---------inside then----------");
+//   return processRequest(response)
+
+// }).then((extra) => {
+//   console.log('inside then')
+//   console.log(extra)
+// })
+
+async function doWork() {
+  try{
+     makeRequest('Google');
+    // console.log(response);
+    // const extra = await processRequest('response')
+    // console.log(extra)
+  }
+  catch(error) {
+    console.log(error);
+  }
+}
+doWork();
