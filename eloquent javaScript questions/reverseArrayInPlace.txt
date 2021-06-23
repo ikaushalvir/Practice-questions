@@ -1,0 +1,30 @@
+// function arrayInPlace(array){
+//   let duplicateArray=[...array];
+//   for(let i=0;i<array.length;i++){
+//     array[i]=duplicateArray[(array.length-1)-i]
+//   }
+  
+  
+  
+// }
+// let array = [1, 2, 3, 4, 5]
+
+
+// arrayInPlace(array)
+// using my method..
+
+function arrayInPlace(array){
+  let loopUpto=Math.floor((array.length)/2);
+  for(let i=0;i<=loopUpto;i++){
+    let temp=array[i];
+    array[i]=array[(array.length-1)-i];
+    array[(array.length-1)-i]=temp
+  }
+  
+}
+
+let array = ["A,12",12,12,11,10]
+
+
+arrayInPlace(array);
+console.log(array)

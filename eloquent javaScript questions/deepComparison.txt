@@ -1,0 +1,63 @@
+// Your code here.
+function deepEqual(obj1,obj2){
+  // storing keys of objects in arrays 
+  
+  let obj1Array=Object.keys(obj1);
+  let obj2Array=Object.keys(obj2);
+ 
+  //if array contains different no. of items than certainly objects are not equal
+  
+  if(obj1Array.length!==obj2Array.length){
+    
+    ;
+    return false;
+                                         } 
+  
+  // if array contains equal items
+  
+  for(let i=0;i<obj1Array.length;i++){
+    //checking if property is an object 
+    
+    if(typeof obj1[obj1Array[i]]==='object' && obj1[obj1Array[i]]!==null){
+      if(!((typeof obj2[obj2Array[i]]==='object'))){
+        
+        return false
+      }
+      else{
+        let innerObjArray1=Object.keys(obj1[obj1Array[i]]);
+        let innerObjArray2=Object.keys(obj2[obj2Array[i]]);
+        if(innerObjArray1.length!==innerObjArray2.length) return false;
+        
+        for(let j=0;j<innerObjArray1.length;j++){
+            if(!(obj1[obj1Array[i]][innerObjArray1[i]]===obj2[obj2Array[i]][innerObjArray2[i]])){
+              return false;
+            }
+        }
+      }
+      
+    }
+    else{
+      // comparing the properties if property is not an object.
+    if(!(obj1[obj1Array[i]]===obj2[obj2Array[i]])){
+
+      return false
+      
+    }
+  }
+      }
+  
+  return true;
+     
+  
+  
+}
+
+
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
+
